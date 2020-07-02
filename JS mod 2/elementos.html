@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>Curso Javascript</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+         
+     
+        <button id="botao">Click</button>
+
+        <button id="botao2">Adcionar</button>
+         
+        <input type="text" name="nome" id="inpt">
+        <button onClick="adicionar()">Adicionar</button>
+
+        <div id="tela">
+
+        </div>
+        <ul> </ul>
+
+        <script>
+            
+            // var linkElement = document.createElement('a')//nome da tag
+            // linkElement.setAttribute('href', 'http.rocketset.com.br');
+            // var textElement = document.createTextNode('Acessar site rocketset');
+            // linkElement.appendChild(textElement);
+
+            // var containerElement = document.querySelector('#app')
+            // containerElement.appendChild(linkElement);
+            var telaS = document.querySelector('#tela');
+
+            var btnElement = document.querySelector('#botao');
+
+            btnElement.onclick = function(){
+    
+                var tela = document.createElement('div');
+       
+                tela.style.width = '100px';
+                tela.style.height = '100px';
+                tela.style.backgroundColor = '#F00';
+                tela.onmouseover = function(){
+                
+                  tela.style.backgroundColor = newColor;
+
+                }
+                telaS.appendChild(tela);
+            }
+            function getRandomColor() {
+                var letters = "0123456789ABCDEF";
+                var color = "#";
+                for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+                }
+                var newColor = getRandomColor(); // #E943F0
+            
+
+            
+            var nomes = ["Diego", "Gabriel", "Lucas"];
+            var btnAdcionar = document.querySelector("#botao2");
+            var ul = document.querySelector('ul');   
+
+            btnAdcionar.onclick = function(){
+                for(nome of nomes){
+                
+                var liElement = document.createElement('li');
+    
+                var textElement = document.createTextNode(nome);
+                console.log(nome);
+                liElement.appendChild(textElement);
+                ul.appendChild(liElement);
+            
+                 }
+            }
+       
+            function adicionar(){
+                var inputElement = document.querySelector('#inpt');
+                var texto = inputElement.value;
+                var doc = document.querySelector('body')
+                nomes.push(texto)
+                console.log(texto);
+                doc.removeChild(inputElement);
+            }
+            
+
+        </script>
+
+    </body>
+</html>

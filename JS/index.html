@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso de JS</title>
+    </head>
+
+    <body>
+        
+        <script>
+
+
+            function pares(x, y) {
+
+                for (var i = x; i < y; i++) {
+
+                for (var i = x; i <= y; i++) {
+
+                if (i % 2 === 0) {
+                    console.log(i);
+                     }
+                  }
+               }
+            }    
+            //pares(32, 321)
+            
+            var booleann
+            function temHabilidade(skills) {
+               var posicao = skills.indexOf("Javascript")
+               if(posicao >= 0){
+                   booleann = true
+               }
+               return booleann
+            }
+            var skills = ["Javascript", "ReactJS", "React Native"];
+            
+
+            function experiencia(anos) {
+               var nivel
+               switch(anos){
+                   case anos >= 0 && anos <= 1:
+                      nivel = "Iniciante" 
+                    case anos >= 1 && anos <=3:
+                      nivel = "Intermediario"
+                    case anos >=3 && anos <= 6:
+                      nivel = "Avançado"
+                    case anos >= 7:
+                      nivel = "Jedi Master"
+               }
+               //console.log(nivel)
+            }
+            var anosEstudo = 7;
+            resultado = experiencia(anosEstudo);
+            console.log(experiencia)
+            // De 0-1 ano: Iniciante
+            // De 1-3 anos: Intermediário
+            // De 3-6 anos: Avançado
+            // De 7 acima: Jedi Master
+
+            
+            
+        </script>
+
+
+    </body>
+</html>
