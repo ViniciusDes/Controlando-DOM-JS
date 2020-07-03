@@ -3,11 +3,7 @@ var inputElement = document.querySelector('#app input');
 var buttonElement = document.querySelector('#app button');
 
 
-var todos = [
-    'Fazer cafe',
-    'Estudar JavaScript',
-    'Acessar comunidade Rocketseat'
-];
+var todos = JSON.parse(localStorage.getItem('list_todos')) || [];
 
 function renderTodos(){
     listElement.innerHTML = '';
@@ -17,19 +13,43 @@ function renderTodos(){
         var todoElement = document.createElement('li');
         var todoText = document.createTextNode(todo);
 
+        var linkElement = document.createElement('a');
+        linkElement.setAttribute('href', '#');
+        var linkText = document.createTextNode('excluir');
+
+        var pos = todos.indexOf(todo);
+        linkElement.setAttribute('onclick', 'deleteTodos(' + pos + ')');
+        
+
+        linkElement.appendChild(linkText);
+
+
         todoElement.appendChild(todoText);
+        todoElement.appendChild(linkElement);
         listElement.appendChild(todoElement);
     }
 }
-
 renderTodos();
 
 
 function addTodo(){
     var textTodo = inputElement.value;
     todos.push(textTodo);
-    inputElement = '';
+    inputElement.value = '';
     renderTodos();
+    saveTodoStorage()
+
 
 }
 buttonElement.onclick = addTodo;
+
+function deleteTodos(pos){
+    todos.splice(pos, 1);
+    renderTodos();
+    saveTodoStorage()
+
+}
+
+function saveTodoStorage(){
+    localStorage.setItem('list_todos', JSON.stringify(todos))
+}
